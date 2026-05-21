@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		EC157D322FBEED7E00195C22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC157D2B2FBEED7E00195C22 /* Assets.xcassets */; };
 		EC157D332FBEED7E00195C22 /* Multipeer-Connectivity-Example-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC157D2E2FBEED7E00195C22 /* Multipeer-Connectivity-Example-Info.plist */; };
-		EC157D342FBEED7E00195C22 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC157D2C2FBEED7E00195C22 /* ContentView.swift */; };
+		EC157D342FBEED7E00195C22 /* MultipeerConnectivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC157D2C2FBEED7E00195C22 /* MultipeerConnectivityView.swift */; };
 		EC157D352FBEED7E00195C22 /* Multipeer_Connectivity_ExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC157D2D2FBEED7E00195C22 /* Multipeer_Connectivity_ExampleApp.swift */; };
 		EC157D362FBEED7E00195C22 /* MultipeerConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC157D2F2FBEED7E00195C22 /* MultipeerConnectivityManager.swift */; };
 		EC157D372FBEED7E00195C22 /* PeerInvitationAlertModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC157D302FBEED7E00195C22 /* PeerInvitationAlertModifier.swift */; };
@@ -34,7 +34,7 @@
 
 /* Begin PBXFileReference section */
 		EC157D2B2FBEED7E00195C22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EC157D2C2FBEED7E00195C22 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EC157D2C2FBEED7E00195C22 /* MultipeerConnectivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerConnectivityView.swift; sourceTree = "<group>"; };
 		EC157D2D2FBEED7E00195C22 /* Multipeer_Connectivity_ExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multipeer_Connectivity_ExampleApp.swift; sourceTree = "<group>"; };
 		EC157D2E2FBEED7E00195C22 /* Multipeer-Connectivity-Example-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Multipeer-Connectivity-Example-Info.plist"; sourceTree = "<group>"; };
 		EC157D2F2FBEED7E00195C22 /* MultipeerConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerConnectivityManager.swift; sourceTree = "<group>"; };
@@ -74,7 +74,7 @@
 			children = (
 				EC157D2D2FBEED7E00195C22 /* Multipeer_Connectivity_ExampleApp.swift */,
 				EC157D2E2FBEED7E00195C22 /* Multipeer-Connectivity-Example-Info.plist */,
-				EC157D2C2FBEED7E00195C22 /* ContentView.swift */,
+				EC157D2C2FBEED7E00195C22 /* MultipeerConnectivityView.swift */,
 				EC157D2F2FBEED7E00195C22 /* MultipeerConnectivityManager.swift */,
 				EC157D302FBEED7E00195C22 /* PeerInvitationAlertModifier.swift */,
 				EC157D2B2FBEED7E00195C22 /* Assets.xcassets */,
@@ -237,7 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC157D342FBEED7E00195C22 /* ContentView.swift in Sources */,
+				EC157D342FBEED7E00195C22 /* MultipeerConnectivityView.swift in Sources */,
 				EC157D352FBEED7E00195C22 /* Multipeer_Connectivity_ExampleApp.swift in Sources */,
 				EC157D362FBEED7E00195C22 /* MultipeerConnectivityManager.swift in Sources */,
 				EC157D372FBEED7E00195C22 /* PeerInvitationAlertModifier.swift in Sources */,

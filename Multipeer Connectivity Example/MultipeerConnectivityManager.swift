@@ -50,12 +50,12 @@ class MultipeerConnectivityManager: NSObject, ObservableObject {
     
     deinit {
         stopBrowsing()
-        stopHosting()
+        stopAdvertising()
         session.disconnect()
     }
     
     // 주변 기기에게 내 기기를 광고(호스팅) 시작
-    func startHosting() {
+    func startAdvertising() {
         advertiser = MCNearbyServiceAdvertiser(
             peer: myPeerID,
             discoveryInfo: nil,
@@ -66,7 +66,7 @@ class MultipeerConnectivityManager: NSObject, ObservableObject {
     }
     
     // 주변 기기 광고(호스팅) 중지
-    func stopHosting() {
+    func stopAdvertising() {
         advertiser?.stopAdvertisingPeer()
         advertiser = nil
     }
@@ -83,7 +83,10 @@ class MultipeerConnectivityManager: NSObject, ObservableObject {
     
     // 특정 peer에게 연결 초대 전송
     func invite(_ peerID: MCPeerID) {
+        #if DEBUG
         print("\(peerID.displayName)에게 초대 전송")
+        #endif
+        
         browser?.invitePeer(peerID, to: session, withContext: nil, timeout: 10)
     }
     
@@ -150,7 +153,6 @@ extension MultipeerConnectivityManager: MCSessionDelegate {
     
     // 실시간 스트림 수신
     /// 실시간 음성 채팅, 연속적인 비디오 스트림 등 지속적으로 흐르는 스트림 데이터가 들어올 때 호출
-    /// 일반적인 채팅 앱에서는 사용하지 않음
     func session(
         _ session: MCSession,
         didReceive stream: InputStream,
@@ -168,8 +170,7 @@ extension MultipeerConnectivityManager: MCSessionDelegate {
         with progress: Progress
     ) { }
 
-    // 완료 감지
-    /// 파일 전송이 완료됐을 때 호출됨
+    // 파일 전송이 완료됐을 때
     /// 성공 시 localURL에 임시 저장된 파일 위치가 들어오고, 실패 시 error 반환
     func session(
         _ session: MCSession,
@@ -185,14 +186,11 @@ extension MultipeerConnectivityManager: MCSessionDelegate {
 extension MultipeerConnectivityManager: MCBrowserViewControllerDelegate {
     
     // 연결 완료 버튼을 눌렀을 때
-    /// 기기 선택이 완료되었으므로 화면을 자연스럽게 닫아줌
     func browserViewControllerDidFinish(_ browserViewController: MCBrowserViewController) {
         browserViewController.dismiss(animated: true)
     }
     
     // 취소 버튼을 눌렀을 때
-    /// 사용자가 기기 검색창을 나가고 싶어서 취소 버튼을 눌렀을 때 호출됨
-    /// 연결을 하지 않고 화면을 종료
     func browserViewControllerWasCancelled(_ browserViewController: MCBrowserViewController) {
         browserViewController.dismiss(animated: true)
     }

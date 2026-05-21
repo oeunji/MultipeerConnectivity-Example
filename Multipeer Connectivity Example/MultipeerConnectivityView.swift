@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MultipeerConnectivityView.swift
 //  Multipeer Connectivity Example
 //
 //  Created by 이은지 on 5/18/26.
@@ -8,7 +8,7 @@
 import SwiftUI
 import MultipeerConnectivity
 
-struct ContentView: View {
+struct MultipeerConnectivityView: View {
     @State private var selectedPeer: MCPeerID?
     @StateObject private var multipeerConnectivityManager = MultipeerConnectivityManager()
     
@@ -65,11 +65,11 @@ struct ContentView: View {
             manager: multipeerConnectivityManager
         )
         .onAppear {
-            multipeerConnectivityManager.startHosting()
+            multipeerConnectivityManager.startAdvertising()
             multipeerConnectivityManager.startBrowsing()
         }
         .onDisappear {
-            multipeerConnectivityManager.stopHosting()
+            multipeerConnectivityManager.stopAdvertising()
             multipeerConnectivityManager.stopBrowsing()
         }
     }
