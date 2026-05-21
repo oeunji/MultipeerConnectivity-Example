@@ -178,10 +178,11 @@ extension MultipeerConnectivityManager: MCBrowserViewControllerDelegate {
 // MARK: - MCNearbyServiceAdvertiserDelegate
 
 extension MultipeerConnectivityManager: MCNearbyServiceAdvertiserDelegate {
-    func advertiser(_ advertiser: MCNearbyServiceAdvertiser,
-                    didReceiveInvitationFromPeer peerID: MCPeerID,
-                    withContext context: Data?,
-                    invitationHandler: @escaping (Bool, MCSession?) -> Void) {
+    func advertiser(
+        _ advertiser: MCNearbyServiceAdvertiser,
+        didReceiveInvitationFromPeer peerID: MCPeerID,
+        withContext context: Data?,
+        invitationHandler: @escaping (Bool, MCSession?) -> Void) {
         DispatchQueue.main.async {
             self.incomingInvitationPeer = peerID
             self.invitationHandler = invitationHandler
