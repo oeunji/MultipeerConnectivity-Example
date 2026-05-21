@@ -13,6 +13,7 @@ import Combine
 class MultipeerConnectivityManager: NSObject, ObservableObject {
     
     @Published var foundPeers: [MCPeerID] = []
+    @Published var connectedPeers: [MCPeerID] = []
 
     private let serviceID = "c3-start"
     
@@ -89,16 +90,22 @@ extension MultipeerConnectivityManager: MCSessionDelegate {
     func session(_ session: MCSession,
                 peer peerID: MCPeerID,
                 didChange state: MCSessionState) {
-
-        switch state {
-        case .connecting:
-            print("\(peerID.displayName) 연결 중...")
-        case .connected:
-            print("\(peerID.displayName) 연결 성공!")
-        case .notConnected:
-            print("\(peerID.displayName) 연결 해제")
-        @unknown default:
-            break
+        DispatchQueue.main.async {
+            switch state {
+            case .connecting:
+                print("\(peerID.displayName) 연결 중...")
+            case .connected:
+                if !self.connectedPeers.contains(peerID) {
+                    self.connectedPeers.append(peerID)
+                }
+                self.foundPeers.removeAll { $0 == peerID }
+                print("\(peerID.displayName) 연결 성공!")
+            case .notConnected:
+                self.connectedPeers.removeAll { $0 == peerID }
+                print("\(peerID.displayName) 연결 해제")
+            @unknown default:
+                break
+            }
         }
     }
     
@@ -168,7 +175,7 @@ extension MultipeerConnectivityManager: MCAdvertiserAssistantDelegate {
 extension MultipeerConnectivityManager: MCNearbyServiceBrowserDelegate {
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
         DispatchQueue.main.async {
-            guard !self.foundPeers.contains(peerID) else { return }
+            guard !self.foundPeers.contains(peerID), !self.connectedPeers.contains(peerID) else { return }
             self.foundPeers.append(peerID)
         }
     }

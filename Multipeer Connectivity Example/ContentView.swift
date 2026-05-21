@@ -38,6 +38,27 @@ struct ContentView: View {
                     }
                 }
             }
+            
+            Text("초대 완료된 기기")
+                .font(.title3)
+                .fontWeight(.bold)
+                .padding(16)
+
+            if multipeerConnectivityManager.connectedPeers.isEmpty {
+                ContentUnavailableView(
+                    "연결된 기기가 없습니다.",
+                    systemImage: "person.crop.circle.badge.questionmark",
+                    description: Text("초대를 수락한 기기가 여기 표시됩니다.")
+                )
+            } else {
+                List(multipeerConnectivityManager.connectedPeers, id: \.self) { peer in
+                    HStack {
+                        Image(systemName: "checkmark.circle.fill")
+                            .foregroundStyle(.green)
+                        Text(peer.displayName)
+                    }
+                }
+            }
         }
         .alert(
             "초대하시겠습니까?",
