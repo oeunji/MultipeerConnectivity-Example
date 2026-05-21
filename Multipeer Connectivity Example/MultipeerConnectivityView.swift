@@ -65,14 +65,18 @@ struct MultipeerConnectivityView: View {
                 HStack {
                     Spacer()
 
-                    NavigationLink(isActive: $isShowingChatView) {
-                        ChatView(connectedPeers: multipeerConnectivityManager.connectedPeers)
+                    Button {
+                        isShowingChatView = true
                     } label: {
                         Text("채팅하러 가기")
                             .fontWeight(.semibold)
                             .padding(.horizontal, 20)
                             .padding(.vertical, 12)
-                            .background(multipeerConnectivityManager.connectedPeers.isEmpty ? Color.gray.opacity(0.3) : Color.blue)
+                            .background(
+                                multipeerConnectivityManager.connectedPeers.isEmpty
+                                ? Color.gray.opacity(0.3)
+                                : Color.blue
+                            )
                             .foregroundStyle(.white)
                             .clipShape(Capsule())
                     }
@@ -81,7 +85,9 @@ struct MultipeerConnectivityView: View {
                     .padding(.bottom, 16)
                 }
             }
-            .navigationTitle("Multipeer Connectivity")
+            .navigationDestination(isPresented: $isShowingChatView) {
+                ChatView(connectedPeers: multipeerConnectivityManager.connectedPeers)
+            }
             .peerInvitationAlerts(
                 selectedPeer: $selectedPeer,
                 manager: multipeerConnectivityManager
