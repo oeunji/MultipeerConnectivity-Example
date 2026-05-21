@@ -35,16 +35,6 @@
 			path = "Multipeer Connectivity Example";
 			sourceTree = "<group>";
 		};
-		EC4B91BF2FBB3404004552F5 /* Multipeer Connectivity ExampleTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Multipeer Connectivity ExampleTests";
-			sourceTree = "<group>";
-		};
-		EC4B91C92FBB3404004552F5 /* Multipeer Connectivity ExampleUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Multipeer Connectivity ExampleUITests";
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +66,6 @@
 			isa = PBXGroup;
 			children = (
 				EC4B91B12FBB3403004552F5 /* Multipeer Connectivity Example */,
-				EC4B91BF2FBB3404004552F5 /* Multipeer Connectivity ExampleTests */,
-				EC4B91C92FBB3404004552F5 /* Multipeer Connectivity ExampleUITests */,
 				EC4B91B02FBB3403004552F5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -130,9 +118,6 @@
 			dependencies = (
 				EC4B91BE2FBB3404004552F5 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				EC4B91BF2FBB3404004552F5 /* Multipeer Connectivity ExampleTests */,
-			);
 			name = "Multipeer Connectivity ExampleTests";
 			packageProductDependencies = (
 			);
@@ -152,9 +137,6 @@
 			);
 			dependencies = (
 				EC4B91C82FBB3404004552F5 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				EC4B91C92FBB3404004552F5 /* Multipeer Connectivity ExampleUITests */,
 			);
 			name = "Multipeer Connectivity ExampleUITests";
 			packageProductDependencies = (
@@ -400,6 +382,8 @@
 				DEVELOPMENT_TEAM = AT9KX3ZBW6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Multipeer-Connectivity-Example-Info.plist";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -432,6 +416,8 @@
 				DEVELOPMENT_TEAM = AT9KX3ZBW6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Multipeer-Connectivity-Example-Info.plist";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
