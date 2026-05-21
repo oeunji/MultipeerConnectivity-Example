@@ -383,7 +383,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Multipeer-Connectivity-Example-Info.plist";
-				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "";
+					INFOPLIST_KEY_NSLocalNetworkUsageDescription = "주변 기기와 데이터를 안전하게 주고받기 위해 로컬 네트워크 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -417,7 +417,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Multipeer-Connectivity-Example-Info.plist";
-				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "";
+					INFOPLIST_KEY_NSLocalNetworkUsageDescription = "주변 기기와 데이터를 안전하게 주고받기 위해 로컬 네트워크 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -167,10 +167,15 @@ extension MultipeerConnectivityManager: MCAdvertiserAssistantDelegate {
 
 extension MultipeerConnectivityManager: MCNearbyServiceBrowserDelegate {
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
-        
+        DispatchQueue.main.async {
+            guard !self.foundPeers.contains(peerID) else { return }
+            self.foundPeers.append(peerID)
+        }
     }
     
     func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
-        
+        DispatchQueue.main.async {
+            self.foundPeers.removeAll { $0 == peerID }
+        }
     }
 }

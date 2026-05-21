@@ -2,9 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>주변 기기와 데이터를 안전하게 주고받기 위해 로컬 네트워크 권한이 필요합니다.</string>
 	<key>NSBonjourServices</key>
 	<array>
-		<string>_Multipeer-Connectivity-Example._tcp</string>
+		<string>_c3-start._tcp</string>
 	</array>
 </dict>
 </plist>
