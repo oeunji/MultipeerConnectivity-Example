@@ -14,11 +14,13 @@ class MultipeerConnectivityManager: NSObject, ObservableObject {
     
     @Published var foundPeers: [MCPeerID] = []
     @Published var connectedPeers: [MCPeerID] = []
+    @Published var incomingInvitationPeer: MCPeerID?
 
     private let serviceID = "c3-start"
     
     private var session: MCSession  // 세션 객체
-    private var advertiser: MCAdvertiserAssistant?   // Advertiser 객체
+    private var advertiser: MCNearbyServiceAdvertiser?
+    private var invitationHandler: ((Bool, MCSession?) -> Void)?
     
     private(set) var myPeerID: MCPeerID
     
@@ -47,15 +49,17 @@ class MultipeerConnectivityManager: NSObject, ObservableObject {
     
     // 초대 수락/거절 팝업창을 띄워주는 비서 객체 생성
     func startHosting() {
-        advertiser = MCAdvertiserAssistant(serviceType: serviceID,
-                                          discoveryInfo: nil,
-                                          session: session)
+        advertiser = MCNearbyServiceAdvertiser(
+            peer: myPeerID,
+            discoveryInfo: nil,
+            serviceType: serviceID
+        )
         advertiser?.delegate = self
-        advertiser?.start()  // 홍보 시작
+        advertiser?.startAdvertisingPeer()
     }
     
     func stopHosting() {
-        advertiser?.stop()
+        advertiser?.stopAdvertisingPeer()
         advertiser = nil
     }
     
@@ -70,7 +74,14 @@ class MultipeerConnectivityManager: NSObject, ObservableObject {
     
     // 초대 함수 추가
     func invite(_ peerID: MCPeerID) {
+        print("\(peerID.displayName)에게 초대 전송")
         browser?.invitePeer(peerID, to: session, withContext: nil, timeout: 10)
+    }
+
+    func respondToInvitation(accept: Bool) {
+        invitationHandler?(accept, accept ? session : nil)
+        invitationHandler = nil
+        incomingInvitationPeer = nil
     }
     
     // 우리가 지정한 serviceID를 광고 중인 주변 기기들을 띄워주는 기본 화면 객체 생성
@@ -164,10 +175,22 @@ extension MultipeerConnectivityManager: MCBrowserViewControllerDelegate {
     }
 }
 
-// MARK: - MCAdvertiserAssistantDelegate
+// MARK: - MCNearbyServiceAdvertiserDelegate
 
-extension MultipeerConnectivityManager: MCAdvertiserAssistantDelegate {
-    
+extension MultipeerConnectivityManager: MCNearbyServiceAdvertiserDelegate {
+    func advertiser(_ advertiser: MCNearbyServiceAdvertiser,
+                    didReceiveInvitationFromPeer peerID: MCPeerID,
+                    withContext context: Data?,
+                    invitationHandler: @escaping (Bool, MCSession?) -> Void) {
+        DispatchQueue.main.async {
+            self.incomingInvitationPeer = peerID
+            self.invitationHandler = invitationHandler
+        }
+    }
+
+    func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: any Error) {
+        print("광고 시작 실패: \(error.localizedDescription)")
+    }
 }
 
 // MARK: - MCNearbyServiceBrowserDelegate

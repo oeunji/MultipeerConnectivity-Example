@@ -79,6 +79,27 @@ struct ContentView: View {
         } message: {
             Text("\(selectedPeer?.displayName ?? "") 기기를 초대합니다.")
         }
+        .alert(
+            "초대를 수락하시겠습니까?",
+            isPresented: Binding(
+                get: { multipeerConnectivityManager.incomingInvitationPeer != nil },
+                set: {
+                    if !$0, multipeerConnectivityManager.incomingInvitationPeer != nil {
+                        multipeerConnectivityManager.respondToInvitation(accept: false)
+                    }
+                }
+            )
+        ) {
+            Button("수락") {
+                multipeerConnectivityManager.respondToInvitation(accept: true)
+            }
+
+            Button("거절", role: .cancel) {
+                multipeerConnectivityManager.respondToInvitation(accept: false)
+            }
+        } message: {
+            Text("\(multipeerConnectivityManager.incomingInvitationPeer?.displayName ?? "") 기기가 연결을 요청했습니다.")
+        }
         .onAppear {
             multipeerConnectivityManager.startHosting()
             multipeerConnectivityManager.startBrowsing()
