@@ -11,6 +11,8 @@ import UIKit
 import Combine
 
 class MultipeerConnectivityManager: NSObject, ObservableObject {
+    
+    @Published var foundPeers: [MCPeerID] = []
 
     private let serviceID = "c3-start"
     
@@ -18,7 +20,9 @@ class MultipeerConnectivityManager: NSObject, ObservableObject {
     private var advertiser: MCAdvertiserAssistant?   // Advertiser 객체
     
     private(set) var myPeerID: MCPeerID
-
+    
+    private var browser: MCNearbyServiceBrowser?
+    
     override init() {
         myPeerID = MCPeerID(displayName: UIDevice.current.name)
         
@@ -27,10 +31,17 @@ class MultipeerConnectivityManager: NSObject, ObservableObject {
                                  securityIdentity: nil,
                                  encryptionPreference: .required)
         
+        // Browser 초기화
+        self.browser = MCNearbyServiceBrowser(
+            peer: myPeerID,
+            serviceType: serviceID
+        )
+        
         super.init()
         
         // 세션에서 일어나는 이벤트를 내가 처리하겠다고 delegate
         self.session.delegate = self
+        self.browser?.delegate = self
     }
     
     // 초대 수락/거절 팝업창을 띄워주는 비서 객체 생성
@@ -45,6 +56,20 @@ class MultipeerConnectivityManager: NSObject, ObservableObject {
     func stopHosting() {
         advertiser?.stop()
         advertiser = nil
+    }
+    
+    // 검색 시작/중지
+    func startBrowsing() {
+        browser?.startBrowsingForPeers()
+    }
+    
+    func stopBrowsing() {
+        browser?.stopBrowsingForPeers()
+    }
+    
+    // 초대 함수 추가
+    func invite(_ peerID: MCPeerID) {
+        browser?.invitePeer(peerID, to: session, withContext: nil, timeout: 10)
     }
     
     // 우리가 지정한 serviceID를 광고 중인 주변 기기들을 띄워주는 기본 화면 객체 생성
@@ -136,4 +161,16 @@ extension MultipeerConnectivityManager: MCBrowserViewControllerDelegate {
 
 extension MultipeerConnectivityManager: MCAdvertiserAssistantDelegate {
     
+}
+
+// MARK: - MCNearbyServiceBrowserDelegate
+
+extension MultipeerConnectivityManager: MCNearbyServiceBrowserDelegate {
+    func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
+        
+    }
+    
+    func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
+        
+    }
 }
