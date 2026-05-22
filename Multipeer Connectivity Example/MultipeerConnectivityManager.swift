@@ -25,6 +25,8 @@ class MultipeerConnectivityManager: NSObject, ObservableObject {
     
     private(set) var myPeerID: MCPeerID
     
+    var receivedMessages: [String] = []
+    
     override init() {
         myPeerID = MCPeerID(displayName: UIDevice.current.name)
         
@@ -96,6 +98,20 @@ class MultipeerConnectivityManager: NSObject, ObservableObject {
         invitationHandler = nil
         incomingInvitationPeer = nil
     }
+    
+    // 데이터를 전송하는 함수
+    /// 데이터가 세션 속성으로 표현되는 연결된 모든 피어에게 전송됨
+    func sendMessage(_ message: String) {
+        guard session.connectedPeers.isEmpty else { return }
+        
+        if let data = message.data(using: .utf8) {
+            do {
+                try session.send(data, toPeers: session.connectedPeers, with: .reliable)
+            } catch {
+                print("Error \(error.localizedDescription)")
+            }
+        }
+    }
 }
 
 // MARK: - MCSessionDelegate
@@ -147,7 +163,9 @@ extension MultipeerConnectivityManager: MCSessionDelegate {
         fromPeer peerID: MCPeerID
     ) {
         if let text = String(data: data, encoding: .utf8) {
-            print("수신된 메시지: \(text)")
+            DispatchQueue.main.async {
+                self.receivedMessages.append("\(peerID.displayName): \(text)")
+            }
         }
     }
     
