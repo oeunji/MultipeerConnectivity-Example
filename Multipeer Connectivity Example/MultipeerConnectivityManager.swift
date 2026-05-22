@@ -25,7 +25,7 @@ class MultipeerConnectivityManager: NSObject, ObservableObject {
     
     private(set) var myPeerID: MCPeerID
     
-    var receivedMessages: [String] = []
+    @Published var receivedMessages: [String] = []
     
     override init() {
         myPeerID = MCPeerID(displayName: UIDevice.current.name)
@@ -102,14 +102,23 @@ class MultipeerConnectivityManager: NSObject, ObservableObject {
     // 데이터를 전송하는 함수
     /// 데이터가 세션 속성으로 표현되는 연결된 모든 피어에게 전송됨
     func sendMessage(_ message: String) {
-        guard session.connectedPeers.isEmpty else { return }
-        
-        if let data = message.data(using: .utf8) {
-            do {
-                try session.send(data, toPeers: session.connectedPeers, with: .reliable)
-            } catch {
-                print("Error \(error.localizedDescription)")
+        let trimmedMessgae = message.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmedMessgae.isEmpty else { return }
+        guard !session.connectedPeers.isEmpty else { return }
+        guard let data = message.data(using: .utf8) else { return }
+
+        do {
+            try session.send(
+                data,
+                toPeers: session.connectedPeers,
+                with: .reliable
+            )
+            
+            DispatchQueue.main.async {
+                self.receivedMessages.append("\(self.myPeerID.displayName): \(trimmedMessgae)")
             }
+        } catch {
+            print("Error \(error.localizedDescription)")
         }
     }
 }

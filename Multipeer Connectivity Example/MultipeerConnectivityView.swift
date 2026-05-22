@@ -86,7 +86,7 @@ struct MultipeerConnectivityView: View {
                 }
             }
             .navigationDestination(isPresented: $isShowingChatView) {
-                ChatView(connectedPeers: multipeerConnectivityManager.connectedPeers)
+                ChatView(multipeerConnectivityManager: multipeerConnectivityManager)
             }
             .peerInvitationAlerts(
                 selectedPeer: $selectedPeer,

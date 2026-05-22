@@ -9,45 +9,34 @@ import SwiftUI
 import MultipeerConnectivity
 
 struct ChatView: View {
-    let connectedPeers: [MCPeerID]
-    
+    @ObservedObject var multipeerConnectivityManager: MultipeerConnectivityManager
     @State private var message = ""
 
     var body: some View {
         VStack(spacing: 0) {
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 12) {
-                    ForEach(connectedPeers, id: \.self) { peer in
-                        HStack {
-                            Image(systemName: "message.fill")
-                                .foregroundStyle(.blue)
-                            
-                            VStack(alignment: .leading) {
-                                Text(peer.displayName)
-                                    .font(.headline)
-                                
-                                Text("대화 내용")
-                                    .padding(12)
-                                    .background(Color.gray.opacity(0.15))
-                                    .clipShape(RoundedRectangle(cornerRadius: 16))
-                            }
-                        }
-                        .padding(.horizontal)
+                    ForEach(multipeerConnectivityManager.receivedMessages, id: \.self) { message in
+                        Text(message)
+                            .padding(12)
+                            .background(Color.gray.opacity(0.15))
+                            .clipShape(RoundedRectangle(cornerRadius: 16))
+                            .padding(.horizontal)
                     }
                 }
                 .padding(.top)
             }
-            
+
             Divider()
-            
+
             HStack(spacing: 12) {
                 TextField("메시지 입력", text: $message)
                     .padding(12)
                     .background(Color(.systemGray6))
                     .clipShape(Capsule())
-                
+
                 Button {
-                    print(message)
+                    multipeerConnectivityManager.sendMessage(message)
                     message = ""
                 } label: {
                     Image(systemName: "paperplane.fill")
@@ -57,6 +46,7 @@ struct ChatView: View {
                         .background(Color.blue)
                         .clipShape(Circle())
                 }
+                .disabled(message.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
             }
             .padding()
             .background(.ultraThinMaterial)
