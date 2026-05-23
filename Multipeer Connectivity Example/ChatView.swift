@@ -51,7 +51,32 @@ struct ChatView: View {
             .padding()
             .background(.ultraThinMaterial)
         }
-        .navigationTitle("채팅")
+        .navigationTitle(
+            multipeerConnectivityManager.connectedPeers.count == 1
+            ? multipeerConnectivityManager.connectedPeers.first?.displayName ?? "채팅"
+            : "\(multipeerConnectivityManager.connectedPeers.count)명과 채팅"
+        )
         .navigationBarTitleDisplayMode(.inline)
+
+        .toolbarBackground(.ultraThinMaterial, for: .navigationBar)
+        .toolbarBackground(.visible, for: .navigationBar)
+
+        .toolbarColorScheme(.light, for: .navigationBar)
+    }
+}
+
+#Preview {
+    NavigationStack {
+        let manager = MultipeerConnectivityManager()
+        manager.connectedPeers = [
+            MCPeerID(displayName: "은지의 iPhone")
+        ]
+        manager.receivedMessages = [
+            "나: 안녕하세요",
+            "은지의 iPhone: 반갑습니다!",
+            "나: 연결 잘 되나요?"
+        ]
+        
+        return ChatView(multipeerConnectivityManager: manager)
     }
 }
