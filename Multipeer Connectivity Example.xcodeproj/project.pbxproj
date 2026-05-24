@@ -45,6 +45,7 @@
 		EC16CE952FC2BCDB00F318F9 /* Multipeer_Connectivity_ExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multipeer_Connectivity_ExampleApp.swift; sourceTree = "<group>"; };
 		EC16CE962FC2BCDB00F318F9 /* Multipeer-Connectivity-Example-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Multipeer-Connectivity-Example-Info.plist"; sourceTree = "<group>"; };
 		EC16CEA12FC2C02300F318F9 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		EC16CEA42FC2C16A00F318F9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EC4B91AF2FBB3403004552F5 /* Multipeer Connectivity Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Multipeer Connectivity Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC4B91BC2FBB3404004552F5 /* Multipeer Connectivity ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Multipeer Connectivity ExampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC4B91C62FBB3404004552F5 /* Multipeer Connectivity ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Multipeer Connectivity ExampleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +161,7 @@
 			children = (
 				EC157D312FBEED7E00195C22 /* Multipeer Connectivity Example */,
 				EC4B91B02FBB3403004552F5 /* Products */,
+				EC16CEA42FC2C16A00F318F9 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
