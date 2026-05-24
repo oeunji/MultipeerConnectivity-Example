@@ -16,12 +16,28 @@ struct ChatView: View {
         VStack(spacing: 0) {
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 12) {
-                    ForEach(multipeerConnectivityManager.receivedMessages, id: \.self) { message in
-                        Text(message)
-                            .padding(12)
-                            .background(Color.gray.opacity(0.15))
-                            .clipShape(RoundedRectangle(cornerRadius: 16))
-                            .padding(.horizontal)
+                    ForEach(multipeerConnectivityManager.receivedMessages) { message in
+                        
+                        HStack {
+                            if message.isMine {
+                                Spacer()
+                            }
+                            
+                            Text(message.text)
+                                .padding(12)
+                                .foregroundStyle(message.isMine ? .white : .primary)
+                                .background(
+                                    message.isMine
+                                    ? Color.blue
+                                    : Color.gray.opacity(0.2)
+                                )
+                                .clipShape(RoundedRectangle(cornerRadius: 16))
+                            
+                            if !message.isMine {
+                                Spacer()
+                            }
+                        }
+                        .padding(.horizontal)
                     }
                 }
                 .padding(.top)
@@ -62,21 +78,5 @@ struct ChatView: View {
         .toolbarBackground(.visible, for: .navigationBar)
 
         .toolbarColorScheme(.light, for: .navigationBar)
-    }
-}
-
-#Preview {
-    NavigationStack {
-        let manager = MultipeerConnectivityManager()
-        manager.connectedPeers = [
-            MCPeerID(displayName: "은지의 iPhone")
-        ]
-        manager.receivedMessages = [
-            "나: 안녕하세요",
-            "은지의 iPhone: 반갑습니다!",
-            "나: 연결 잘 되나요?"
-        ]
-        
-        return ChatView(multipeerConnectivityManager: manager)
     }
 }
