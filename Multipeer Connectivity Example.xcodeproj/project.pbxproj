@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		EC157D322FBEED7E00195C22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC157D2B2FBEED7E00195C22 /* Assets.xcassets */; };
-		EC157D332FBEED7E00195C22 /* Multipeer-Connectivity-Example-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC157D2E2FBEED7E00195C22 /* Multipeer-Connectivity-Example-Info.plist */; };
 		EC157D342FBEED7E00195C22 /* MultipeerConnectivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC157D2C2FBEED7E00195C22 /* MultipeerConnectivityView.swift */; };
-		EC157D352FBEED7E00195C22 /* Multipeer_Connectivity_ExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC157D2D2FBEED7E00195C22 /* Multipeer_Connectivity_ExampleApp.swift */; };
 		EC157D362FBEED7E00195C22 /* MultipeerConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC157D2F2FBEED7E00195C22 /* MultipeerConnectivityManager.swift */; };
 		EC157D372FBEED7E00195C22 /* PeerInvitationAlertModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC157D302FBEED7E00195C22 /* PeerInvitationAlertModifier.swift */; };
 		EC157D392FBEFA4F00195C22 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC157D382FBEFA4F00195C22 /* ChatView.swift */; };
 		EC16CE932FC2BA7F00F318F9 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC16CE912FC2BA7F00F318F9 /* ChatMessage.swift */; };
+		EC16CE982FC2BCDB00F318F9 /* Multipeer_Connectivity_ExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC16CE952FC2BCDB00F318F9 /* Multipeer_Connectivity_ExampleApp.swift */; };
+		EC16CE992FC2BCDB00F318F9 /* Multipeer-Connectivity-Example-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC16CE962FC2BCDB00F318F9 /* Multipeer-Connectivity-Example-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,12 +37,12 @@
 /* Begin PBXFileReference section */
 		EC157D2B2FBEED7E00195C22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC157D2C2FBEED7E00195C22 /* MultipeerConnectivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerConnectivityView.swift; sourceTree = "<group>"; };
-		EC157D2D2FBEED7E00195C22 /* Multipeer_Connectivity_ExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multipeer_Connectivity_ExampleApp.swift; sourceTree = "<group>"; };
-		EC157D2E2FBEED7E00195C22 /* Multipeer-Connectivity-Example-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Multipeer-Connectivity-Example-Info.plist"; sourceTree = "<group>"; };
 		EC157D2F2FBEED7E00195C22 /* MultipeerConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerConnectivityManager.swift; sourceTree = "<group>"; };
 		EC157D302FBEED7E00195C22 /* PeerInvitationAlertModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerInvitationAlertModifier.swift; sourceTree = "<group>"; };
 		EC157D382FBEFA4F00195C22 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		EC16CE912FC2BA7F00F318F9 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		EC16CE952FC2BCDB00F318F9 /* Multipeer_Connectivity_ExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multipeer_Connectivity_ExampleApp.swift; sourceTree = "<group>"; };
+		EC16CE962FC2BCDB00F318F9 /* Multipeer-Connectivity-Example-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Multipeer-Connectivity-Example-Info.plist"; sourceTree = "<group>"; };
 		EC4B91AF2FBB3403004552F5 /* Multipeer Connectivity Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Multipeer Connectivity Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC4B91BC2FBB3404004552F5 /* Multipeer Connectivity ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Multipeer Connectivity ExampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC4B91C62FBB3404004552F5 /* Multipeer Connectivity ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Multipeer Connectivity ExampleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,13 +76,12 @@
 		EC157D312FBEED7E00195C22 /* Multipeer Connectivity Example */ = {
 			isa = PBXGroup;
 			children = (
+				EC16CE972FC2BCDB00F318F9 /* Application */,
 				EC16CE922FC2BA7F00F318F9 /* Model */,
-				EC157D2D2FBEED7E00195C22 /* Multipeer_Connectivity_ExampleApp.swift */,
-				EC157D2E2FBEED7E00195C22 /* Multipeer-Connectivity-Example-Info.plist */,
 				EC16CE8B2FC2B98C00F318F9 /* View */,
-				EC157D2F2FBEED7E00195C22 /* MultipeerConnectivityManager.swift */,
-				EC157D302FBEED7E00195C22 /* PeerInvitationAlertModifier.swift */,
-				EC157D2B2FBEED7E00195C22 /* Assets.xcassets */,
+				EC16CE9A2FC2BD1900F318F9 /* Manager */,
+				EC16CE9B2FC2BD2900F318F9 /* Modifier */,
+				EC16CE9C2FC2BD3000F318F9 /* Resource */,
 			);
 			path = "Multipeer Connectivity Example";
 			sourceTree = "<group>";
@@ -102,6 +101,39 @@
 				EC16CE912FC2BA7F00F318F9 /* ChatMessage.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		EC16CE972FC2BCDB00F318F9 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				EC16CE952FC2BCDB00F318F9 /* Multipeer_Connectivity_ExampleApp.swift */,
+				EC16CE962FC2BCDB00F318F9 /* Multipeer-Connectivity-Example-Info.plist */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		EC16CE9A2FC2BD1900F318F9 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				EC157D2F2FBEED7E00195C22 /* MultipeerConnectivityManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		EC16CE9B2FC2BD2900F318F9 /* Modifier */ = {
+			isa = PBXGroup;
+			children = (
+				EC157D302FBEED7E00195C22 /* PeerInvitationAlertModifier.swift */,
+			);
+			path = Modifier;
+			sourceTree = "<group>";
+		};
+		EC16CE9C2FC2BD3000F318F9 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				EC157D2B2FBEED7E00195C22 /* Assets.xcassets */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		EC4B91A62FBB3403004552F5 = {
@@ -233,8 +265,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC16CE992FC2BCDB00F318F9 /* Multipeer-Connectivity-Example-Info.plist in Resources */,
 				EC157D322FBEED7E00195C22 /* Assets.xcassets in Resources */,
-				EC157D332FBEED7E00195C22 /* Multipeer-Connectivity-Example-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC157D342FBEED7E00195C22 /* MultipeerConnectivityView.swift in Sources */,
-				EC157D352FBEED7E00195C22 /* Multipeer_Connectivity_ExampleApp.swift in Sources */,
+				EC16CE982FC2BCDB00F318F9 /* Multipeer_Connectivity_ExampleApp.swift in Sources */,
 				EC157D392FBEFA4F00195C22 /* ChatView.swift in Sources */,
 				EC16CE932FC2BA7F00F318F9 /* ChatMessage.swift in Sources */,
 				EC157D362FBEED7E00195C22 /* MultipeerConnectivityManager.swift in Sources */,
