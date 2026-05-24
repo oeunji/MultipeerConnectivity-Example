@@ -17,10 +17,7 @@
 ### 화면 구성 및 시연
 | iPhone 17 Pro | iPhone 17 | iPhone 17e |
 |------|------|--------|
-| <img width="295" height="640" alt="Simulator Screen Recording - iPhone 17 Pro - 2026-05-24 at 14 28 15" src="https://github.com/user-attachments/assets/0ccf1afd-d65a-4edf-8f7b-1a94f0b4978e" />
- | <img width="295" height="640" alt="Simulator Screen Recording - iPhone 17 - 2026-05-24 at 14 28 13" src="https://github.com/user-attachments/assets/3682391a-2cb4-4178-a81b-cdba83200670" />
- | <img width="296" height="640" alt="Simulator Screen Recording - iPhone 17e - 2026-05-24 at 14 28 20" src="https://github.com/user-attachments/assets/954840bb-ebe2-49fd-b6cf-ce0a103d504d" />
- |
+| <img width="295" height="640" alt="Simulator Screen Recording - iPhone 17 Pro - 2026-05-24 at 14 28 15" src="https://github.com/user-attachments/assets/0ccf1afd-d65a-4edf-8f7b-1a94f0b4978e" /> | <img width="295" height="640" alt="Simulator Screen Recording - iPhone 17 - 2026-05-24 at 14 28 13" src="https://github.com/user-attachments/assets/3682391a-2cb4-4178-a81b-cdba83200670" /> | <img width="296" height="640" alt="Simulator Screen Recording - iPhone 17e - 2026-05-24 at 14 28 20" src="https://github.com/user-attachments/assets/954840bb-ebe2-49fd-b6cf-ce0a103d504d" /> |
 
 ## 기술 스택
 
