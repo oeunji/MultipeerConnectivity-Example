@@ -76,13 +76,21 @@
 			children = (
 				EC157D2D2FBEED7E00195C22 /* Multipeer_Connectivity_ExampleApp.swift */,
 				EC157D2E2FBEED7E00195C22 /* Multipeer-Connectivity-Example-Info.plist */,
-				EC157D2C2FBEED7E00195C22 /* MultipeerConnectivityView.swift */,
+				EC16CE8B2FC2B98C00F318F9 /* View */,
 				EC157D2F2FBEED7E00195C22 /* MultipeerConnectivityManager.swift */,
 				EC157D302FBEED7E00195C22 /* PeerInvitationAlertModifier.swift */,
 				EC157D2B2FBEED7E00195C22 /* Assets.xcassets */,
-				EC157D382FBEFA4F00195C22 /* ChatView.swift */,
 			);
 			path = "Multipeer Connectivity Example";
+			sourceTree = "<group>";
+		};
+		EC16CE8B2FC2B98C00F318F9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EC157D2C2FBEED7E00195C22 /* MultipeerConnectivityView.swift */,
+				EC157D382FBEFA4F00195C22 /* ChatView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		EC4B91A62FBB3403004552F5 = {
