@@ -10,7 +10,7 @@ import MultipeerConnectivity
 
 struct ChatView: View {
     @ObservedObject var multipeerConnectivityManager: MultipeerConnectivityManager
-    @State private var message = ""
+    @State private var message: String = ""
 
     var body: some View {
         VStack(spacing: 0) {
@@ -23,18 +23,24 @@ struct ChatView: View {
                                 Spacer()
                             }
                             
-                            Text(message.text)
-                                .padding(12)
-                                .foregroundStyle(message.isMine ? .white : .primary)
-                                .background(
-                                    message.isMine
-                                    ? Color.blue
-                                    : Color.gray.opacity(0.2)
-                                )
-                                .clipShape(RoundedRectangle(cornerRadius: 16))
-                            
-                            if !message.isMine {
-                                Spacer()
+                            VStack(alignment: .leading) {
+                                Text(message.senderPeerID)
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                                
+                                Text(message.text)
+                                    .padding(12)
+                                    .foregroundStyle(message.isMine ? .white : .primary)
+                                    .background(
+                                        message.isMine
+                                        ? Color.blue
+                                        : Color.gray.opacity(0.2)
+                                    )
+                                    .clipShape(RoundedRectangle(cornerRadius: 16))
+                                
+                                if !message.isMine {
+                                    Spacer()
+                                }
                             }
                         }
                         .padding(.horizontal)

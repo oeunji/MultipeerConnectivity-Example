@@ -119,7 +119,8 @@ class MultipeerConnectivityManager: NSObject, ObservableObject {
                 self.receivedMessages.append(
                     ChatMessage(
                         text: trimmedMessgae,
-                        isMine: true
+                        isMine: true,
+                        senderPeerID: self.myPeerID.displayName
                     )
                 )
             }
@@ -182,8 +183,10 @@ extension MultipeerConnectivityManager: MCSessionDelegate {
                 self.receivedMessages.append(
                     ChatMessage(
                         text: text,
-                        isMine: false)
+                        isMine: false,
+                        senderPeerID: peerID.displayName
                     )
+                )
             }
         }
     }

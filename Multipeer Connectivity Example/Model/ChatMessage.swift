@@ -11,4 +11,5 @@ struct ChatMessage: Identifiable {
     let id = UUID()
     let text: String
     let isMine: Bool
+    let senderPeerID: String
 }
