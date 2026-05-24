@@ -1,3 +1,6 @@
+<img width="1512" height="982" alt="image" src="https://github.com/user-attachments/assets/119aa6dd-d0e3-43af-a7e6-8f1fe2d02d0f" />
+
+
 # Multipeer Connectivity Example
 
 `MultipeerConnectivity` 프레임워크를 사용해 주변 iOS 기기를 탐색하고, 초대 후 연결해 간단한 텍스트 채팅을 주고받는 SwiftUI 예제 앱입니다.
@@ -10,6 +13,14 @@
 - 연결된 피어들과 1:1 또는 다대다 텍스트 메시지 전송
 
 앱은 `MCNearbyServiceAdvertiser`, `MCNearbyServiceBrowser`, `MCSession`을 직접 사용해 멀티피어 연결 흐름을 구현합니다.
+
+### 화면 구성 및 시연
+| iPhone 17 Pro | iPhone 17 | iPhone 17e |
+|------|------|--------|
+| <img width="295" height="640" alt="Simulator Screen Recording - iPhone 17 Pro - 2026-05-24 at 14 28 15" src="https://github.com/user-attachments/assets/0ccf1afd-d65a-4edf-8f7b-1a94f0b4978e" />
+ | <img width="295" height="640" alt="Simulator Screen Recording - iPhone 17 - 2026-05-24 at 14 28 13" src="https://github.com/user-attachments/assets/3682391a-2cb4-4178-a81b-cdba83200670" />
+ | <img width="296" height="640" alt="Simulator Screen Recording - iPhone 17e - 2026-05-24 at 14 28 20" src="https://github.com/user-attachments/assets/954840bb-ebe2-49fd-b6cf-ce0a103d504d" />
+ |
 
 ## 기술 스택
 
@@ -94,19 +105,3 @@ Multipeer Connectivity Example
 4. 한 기기에서 주변 기기를 선택해 초대합니다.
 5. 상대 기기에서 초대를 수락합니다.
 6. 연결 후 `채팅하러 가기` 버튼으로 이동해 메시지를 주고받습니다.
-
-## 확인할 점
-
-- 시뮬레이터보다 실제 기기 테스트가 적합합니다.
-- 메시지는 현재 문자열 텍스트만 전송합니다.
-- 파일 전송, 스트림 수신 관련 delegate 메서드는 비어 있으며 확장 포인트로 남아 있습니다.
-- 테스트 타깃은 생성되어 있지만 현재 저장소에는 테스트 코드가 포함되어 있지 않습니다.
-
-## 개선 아이디어
-
-- 연결 상태 배지 및 오류 표시 강화
-- 메시지 자동 스크롤
-- 파일 전송 및 이미지 공유
-- 연결 끊김 재시도 처리
-- 닉네임 사용자 지정
-
