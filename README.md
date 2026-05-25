@@ -19,6 +19,10 @@
 |------|------|--------|
 | <img width="180" alt="Simulator Screen Recording - iPhone 17 Pro - 2026-05-24 at 14 28 15" src="https://github.com/user-attachments/assets/0ccf1afd-d65a-4edf-8f7b-1a94f0b4978e" /> | <img width="180" alt="Simulator Screen Recording - iPhone 17 - 2026-05-24 at 14 28 13" src="https://github.com/user-attachments/assets/3682391a-2cb4-4178-a81b-cdba83200670" /> | <img width="180" alt="Simulator Screen Recording - iPhone 17e - 2026-05-24 at 14 28 20" src="https://github.com/user-attachments/assets/954840bb-ebe2-49fd-b6cf-ce0a103d504d" /> |
 
+## 클래스 다이어그램
+<img width="1000" alt="Untitled diagram-2026-05-25-091359" src="https://github.com/user-attachments/assets/ab04a034-4efa-4ce7-9606-772f2acdccb6" />
+
+
 ## 기술 스택
 
 - SwiftUI
