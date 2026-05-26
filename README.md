@@ -22,6 +22,9 @@
 ## 클래스 다이어그램
 <img width="1000" alt="Untitled diagram-2026-05-25-091359" src="https://github.com/user-attachments/assets/ab04a034-4efa-4ce7-9606-772f2acdccb6" />
 
+## 시퀀스 다이어그램
+<img width="1000" alt="mermaid-diagram" src="https://github.com/user-attachments/assets/2e8f093b-cdda-4ddf-8881-50afa413690b" />
+
 
 ## 기술 스택
 
