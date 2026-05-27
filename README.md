@@ -23,8 +23,9 @@
 <img width="1000" alt="Untitled diagram-2026-05-25-091359" src="https://github.com/user-attachments/assets/ab04a034-4efa-4ce7-9606-772f2acdccb6" />
 
 ## 시퀀스 다이어그램
-<img width="1000" alt="mermaid-diagram" src="https://github.com/user-attachments/assets/2e8f093b-cdda-4ddf-8881-50afa413690b" />
 
+### 초대 요청/수락 로직
+<img width="1000" alt="시퀀스다이어그램_초대요청및수락" src="https://github.com/user-attachments/assets/b5f59940-5e6f-4f93-b320-7d7448c0d0f6" />
 
 ## 기술 스택
 
